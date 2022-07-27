@@ -29,6 +29,11 @@
 
 
   </table>
+  <br>
+  <br>
+  <a href="/index.html">메인</a>
+
+
 
 
 
