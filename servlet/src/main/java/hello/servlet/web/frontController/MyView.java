@@ -21,8 +21,6 @@ public class MyView {
     }
 
     public void render(Map<String,Object> mv, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        mv.forEach((key2,value2) -> System.out.println(key2 +" " + value2));
-
         mv.forEach((key,value) -> request.setAttribute(key,value));
         RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
         dispatcher.forward(request,response);
