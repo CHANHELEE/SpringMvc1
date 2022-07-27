@@ -13,7 +13,6 @@ import java.util.List;
 
 public class MemberListControllerV1 implements ControllerV1 {
     MemberRepository memberRepository = MemberRepository.getInstance();
-
     @Override
     public void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Member> memberList = memberRepository.findAll();
