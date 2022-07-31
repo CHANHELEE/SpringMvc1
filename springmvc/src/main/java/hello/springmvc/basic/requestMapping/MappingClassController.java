@@ -24,7 +24,7 @@ public class MappingClassController {
         return "update userId=" + userId;
     }
 
-    @DeleteMapping("/mapping/usersㅜ/{userId}")
+    @DeleteMapping("/mapping/users/{userId}")
     public String deleteUser(@PathVariable String userId) {
         return "delete userId=" + userId;
     }

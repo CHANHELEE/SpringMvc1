@@ -29,7 +29,7 @@ public class RequestBodyJsonController {
     }
 
     @ResponseBody
-    @RequestMapping("/request-body-json-v2")
+    @RequestMapping("/request-body-json-v3")
     public HelloData requestv2(@RequestBody HelloData helloData){// 컨버터가 json 형식을 알아서 변환해 준다.
 
         log.info("username={} age={}",helloData.getUsername(),helloData.getUsername());
@@ -38,11 +38,11 @@ public class RequestBodyJsonController {
 
 
     @ResponseBody
-    @RequestMapping("/request-body-json-v3")
-    public String requestv3(@RequestBody String username){// 컨버터가 json 형식을 알아서 변환해 준다.
+    @RequestMapping("/request-body-json-v2")
+    public String requestv3(@RequestBody String username){// 컨버터가 json 형식을 string 으로 알아서 변환해 준다., username
 
         log.info("username={}",username );
-        return "username= "+username; //json 으로 response
+        return "username= "+username; //string 으로 response
     }
 
 
