@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.PostConstruct;
 import java.net.http.HttpClient;
@@ -32,12 +33,13 @@ public class ItemController {
         return "basic/addForm";
     }
 
-    @PostMapping("/add")
-    public String addItem(@ModelAttribute Item item,Model model){
+    @PostMapping("/add") // redirectAttribute 사용
+    public String addItem(@ModelAttribute Item item,RedirectAttributes redirectAttributes){
         itemRepository.save(item);
-        model.addAttribute("item",item);
+        redirectAttributes.addAttribute("itemId",item.getId());
+        redirectAttributes.addAttribute("status",true);
 
-        return  "basic/item";
+        return  "redirect:/basic/items/{itemId}"; // PRG 적용
     }
 
 
@@ -57,8 +59,9 @@ public class ItemController {
     }
 
     @PostMapping("/{itemId}/edit")
-    public  String update(@ModelAttribute Item item,@PathVariable Long itemId){
+    public  String update(@ModelAttribute Item item,@PathVariable Long itemId,RedirectAttributes redirectAttributes){
         itemRepository.update(itemId, item);
+        redirectAttributes.addAttribute("edit",true);
         return "redirect:/basic/items";
     }
 

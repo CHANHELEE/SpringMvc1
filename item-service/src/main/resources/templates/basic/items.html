@@ -9,7 +9,12 @@
 
 <div class="container" style="max-width: 600px">
   <div class="py-5 text-center">
-    <h2>상품 목록</h2> </div>
+    <h2>상품 목록</h2>
+  </div>
+
+  <div class="py-3 align-text-bottom">
+    <h3 th:if="${param.edit}" th:text="'상품이 수정 되었습니다.'">상품이 수정 되었습니다.</h3> </div>
+  <div>
   <div class="row">
     <div class="col">
       <button class="btn btn-primary float-end"
